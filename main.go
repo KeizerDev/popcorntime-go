@@ -10,7 +10,11 @@ import (
 //    StationBeanList []Station `json:"stationBeanList"`
 //}
 
+var core Core
+
 func main() {
+	core = Core{Endpoint: endpoint}
+
 	err := ui.Main(func() {
 		window := ui.NewWindow("Popcorn Time Go", 200, 100, true)
 
@@ -36,12 +40,12 @@ func counter(wrapper *ui.Box) {
 	//_, body, _:= request.Get("http://tv-v2.api-fetch.website/movies/1").End()
 
 	var response []Movie
-	err := Core{}.Get("/movies/1", &response)
+	err := core.Get("/movies/1", &response)
 	if err != nil {
 		panic(err)
 	}
 	
-	fmt.Println(response[0].IMDB_ID)
+	fmt.Println(response[0].Torrents)
 
 	//for i := range body {
 	//	fmt.Println(body[i])

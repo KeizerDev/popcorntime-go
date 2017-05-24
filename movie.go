@@ -11,6 +11,9 @@ type Movie struct {
 	Trailer string
 	Certification string
 	Torrents map[string]map[string]Torrent
+	Genres []string
+	Images map[string]string
+	Rating Rating
 }
 
 type Torrent struct {
@@ -20,4 +23,12 @@ type Torrent struct {
 	Peer int
 	Seed int
 	URL string
+}
+
+type Rating struct {
+	Percentage int
+	Watching int
+	Votes int
+	Loved int
+	Hated int
 }

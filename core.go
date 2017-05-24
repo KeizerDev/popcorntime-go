@@ -12,10 +12,11 @@ import (
 const endpoint string = "https://tv-v2.api-fetch.website"
 
 type Core struct {
+	Endpoint string
 }
 
-func getURI(action string) string {
-	return endpoint + action
+func (c Core) getURI(action string) string {
+	return c.Endpoint + action
 }
 
 func (c Core) Get(action string, d interface{}) error {
@@ -33,7 +34,7 @@ func (c Core) Post(action string, d interface{}, postData interface{}) error {
 }
 
 func (c Core) request(method, action string, d interface{}, reader io.Reader) error {
-	req, err := http.NewRequest(method, getURI(action), reader)
+	req, err := http.NewRequest(method, c.getURI(action), reader)
 	if err != nil {
 		return err
 	}
