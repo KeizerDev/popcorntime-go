@@ -38,27 +38,20 @@ func counter(wrapper *ui.Box, api core.API) {
 	if err != nil {
 		panic(err)
 	}
-	
-	fmt.Println(resp)
-	for key, value := range resp {}
-		fmt.Println(resp[i])
-	}
-	//ui.QueueMain(func() {
-	//
-	 //	box := ui.NewVerticalBox()
-	 //	box2 := ui.NewVerticalBox()
-	 //	name := ui.NewEntry()
-        //button := ui.NewButton("Greet")
-        //greeting := ui.NewLabel("")
-	//
-	 //    box.Append(ui.NewLabel("Enter your name:"), false)
-	//
-	 //	name.SetText("number " + body)
-		//
-        // box.Append(name, false)
-        // box.Append(button, false)
-        // box.Append(greeting, false)
-	//
-	 //	wrapper.Append(box, false)
-	 //})
+
+
+	ui.QueueMain(func() {
+		for _, value := range resp {
+			fmt.Println(value.Title)
+
+			box := ui.NewVerticalBox()
+			name := ui.NewEntry()
+
+			name.SetText(value.Title)
+
+			box.Append(name, false)
+
+			wrapper.Append(box, false)
+		}
+	 })
 }

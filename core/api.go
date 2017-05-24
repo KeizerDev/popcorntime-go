@@ -15,6 +15,7 @@ const (
 	ORDER_NEWEST = -1
 	ORDER_OLDEST = 1
 
+	API_MOVIE = "/movie"
 	API_MOVIES = "/movies"
 )
 
@@ -28,7 +29,7 @@ type API struct {
 /**
 	Movies will fetch movies from the API with the given parameters
  */
-func (api API) Movies(page int, sort string, order int, genre string) (interface{}, error) {
+func (api API) Movies(page int, sort string, order int, genre string) ([]Movie, error) {
 	moviesURL := API_MOVIES + "/" + strconv.Itoa(page) + "?sort=" + url.QueryEscape(sort) + "&order=" + url.QueryEscape(strconv.Itoa(order))
 
 	if genre != "" {
@@ -42,4 +43,16 @@ func (api API) Movies(page int, sort string, order int, genre string) (interface
 	}
 
 	return movies, nil
+}
+
+func (api API) Movie(imdbID string) (Movie, error) {
+	movieURL := API_MOVIE + "/" + imdbID
+
+	var movie Movie
+	err := api.Core.Get(movieURL, &movie)
+	if err != nil {
+		return Movie{}, err
+	}
+
+	return movie, nil
 }
