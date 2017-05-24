@@ -2,13 +2,12 @@ package main
 
 import (
 	"github.com/andlabs/ui"
-	"strconv"
-	"time"
+	"github.com/parnurzeal/gorequest"
 )
 
 func main() {
 	err := ui.Main(func() {
-		window := ui.NewWindow("title", 200, 100, false)
+		window := ui.NewWindow("Popcorn Time Go", 200, 100, false)
 		label := ui.NewLabel("text")
 		window.SetChild(label)
 		window.OnClosing(func(*ui.Window) bool {
@@ -23,10 +22,10 @@ func main() {
 	}
 }
 func counter(label *ui.Label) {
-	for i := 0; i < 5; i++ {
-		time.Sleep(time.Second)
-		ui.QueueMain(func() {
-			label.SetText("number " + strconv.Itoa(i))
-		})
-	}
+	request := gorequest.New()
+	_, body, _:= request.Get("http://tv-v2.api-fetch.website/movies/1").End()
+
+	ui.QueueMain(func() {
+		label.SetText("number " + body)
+	})
 }
