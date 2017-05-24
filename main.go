@@ -36,7 +36,7 @@ func counter(wrapper *ui.Box, api core.API) {
 	//request := gorequest.New()
 	//_, body, _:= request.Get("http://tv-v2.api-fetch.website/movies/1").End()
 
-	resp, err := api.Movies(1, core.SORT_TRENDING, core.ORDER_NEWEST, "")
+	resp, err := api.Movie("tt3567666")
 	if err != nil {
 		panic(err)
 	}
