@@ -1,0 +1,33 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;popcorntime-go&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../go/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/small" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/google.golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/platform" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/iris" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/dex_server" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/cloud.google.com" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/bitbucket.org" />
+    </CLASSES>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../go/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/small" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/google.golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/platform" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/iris" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/dex_server" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/cloud.google.com" />
+      <root url="file://$PROJECT_DIR$/../../../go/src/bitbucket.org" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>
