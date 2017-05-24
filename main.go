@@ -2,18 +2,15 @@ package main
 
 import (
 	"github.com/andlabs/ui"
+	"github.com/KeizerDev/popcorntime-go/core"
 	"fmt"
 )
 
-//type MovieResponse struct {
-//    ExecutionTime string `json:"executionTime"`
-//    StationBeanList []Station `json:"stationBeanList"`
-//}
-
-var core Core
-
 func main() {
-	core = Core{Endpoint: endpoint}
+	c := core.Core{Endpoint: core.ENDPOINT}
+	api := core.API{
+		Core: c,
+	}
 
 	err := ui.Main(func() {
 		window := ui.NewWindow("Popcorn Time Go", 200, 100, true)
@@ -29,23 +26,22 @@ func main() {
 
 		window.Show()
 
-		go counter(wrapper)
+		go counter(wrapper, api)
 	})
 	if err != nil {
 		panic(err)
 	}
 }
-func counter(wrapper *ui.Box) {
+func counter(wrapper *ui.Box, api core.API) {
 	//request := gorequest.New()
 	//_, body, _:= request.Get("http://tv-v2.api-fetch.website/movies/1").End()
 
-	var response []Movie
-	err := core.Get("/movies/1", &response)
+	resp, err := api.Movies(1, core.SORT_TRENDING, core.ORDER_NEWEST, "")
 	if err != nil {
 		panic(err)
 	}
 	
-	fmt.Println(response[0].Torrents)
+	fmt.Println(resp)
 
 	//for i := range body {
 	//	fmt.Println(body[i])

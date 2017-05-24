@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-const endpoint string = "https://tv-v2.api-fetch.website"
+const ENDPOINT string = "https://tv-v2.api-fetch.website"
 
 type Core struct {
 	Endpoint string
